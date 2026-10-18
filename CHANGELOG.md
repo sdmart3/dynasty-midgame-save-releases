@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1
+
+### Fixes
+- **Quit at the play-call screen and keep your last play.** The stats from the play you just ran are now saved as soon
+  as the play-call screen comes up, so a game you quit (or crash out of) there resumes with that play in the box score,
+  counted once.
+- **The right team has the ball.** A game saved at the play-call screen right after a kickoff, a punt or a turnover could
+  give the ball back to the team that just lost it. It now saves the team that has the ball.
+- **Stats keep saving after an unfinished resume.** If you quit a resumed game before the final whistle, the next games
+  you played saved no stats, so resuming one of them came back without its stats and the score by quarter on the end
+  screen was wrong. Fixed: every game saves its stats again.
+
 ## 0.1.0
 
 The first release.

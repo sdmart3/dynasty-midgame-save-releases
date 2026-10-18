@@ -250,8 +250,6 @@ switch the resume settings off in the other tool, then restart the game from the
 - **Team names.** Dynasty Midgame Save can't read the team names from the game yet: cards and the stats say **Home** and
   **Away** (name a game with **Name** on its card).
 - **Super Sim.** The stats catch up at the next snap you play, so after a sim, play one snap before you quit.
-- **The last play before you quit.** If you quit at the play-call screen, the game resumes after your last play, but
-  that play's stats may be missing from the carried box score.
 - **Positions in the stats.** Defensive linemen show as **DL** and linebackers as **LB**, because the exact spot (end or
   tackle, inside or outside) is not certain yet.
 
