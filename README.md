@@ -16,7 +16,12 @@ later, right where you left off:
 - **See the saved stats.** Every saved game keeps its box score: passing, rushing, receiving, defense, kicking and
   punting, returns, snaps, team totals and injuries, one click away on its card.
 - **Set up any situation.** A two-minute drill, a goal-line stand, a fourth-quarter comeback: type it in, and the next
-  game you start begins right there.
+  game you start (a dynasty game or Play Now) begins right there.
+- **Drill a situation (Play Now, beta).** Put the same situation back again and again in the game you are playing:
+  once, every snap, every few plays, or until a score or turnover. See **Drills**.
+- **No defense (Play Now, beta).** The other team's players are moved off the field for each of your offensive plays, in
+  a real game with a real crowd: for testing stadium, audio and presentation tweaks, or a drill without defenders. See
+  **No defense**.
 
 Dynasty Midgame Save has three parts, and the app installs all of them for you:
 
@@ -53,7 +58,7 @@ You don't need a `.fbmod`.
       Manager's `Plugins` folder. Nothing in the game folder changes. If the Mod Manager is open, close it and open it
       again so it loads the new plugin.
    3. **Launch the game from the Mod Manager**, the way you always do. This step ticks itself off once Dynasty Midgame Save
-      reports in from the game (about 30 seconds after the game starts).
+      reports in from the game (about 20 seconds after the game starts).
    4. **Play.** Recording is automatic: there is nothing to switch on.
 
 The **Folders in use** card on Home shows each folder, with buttons to open, change or reset it.
@@ -75,6 +80,11 @@ If the Mod Manager already has a `Plugins` folder, merge into it. Don't replace 
 Windows only lets administrator programs write there. Home then shows **Dynasty Midgame Save needs permission to write to the
 Mod Manager folder** with an **Allow Dynasty Midgame Save to write here** button: Windows asks you once, and that's it. Or move
 the Mod Manager folder somewhere your account owns (for example `C:\Games`) and choose it again on Home.
+
+The game itself runs as you, so it can't write there either. Dynasty Midgame Save notices and saves to
+`%LOCALAPPDATA%\Dynasty Midgame Save\<a short code>\` instead; Home shows that folder with an **Open that folder** button, and
+the app reads from it. If you'd rather keep everything in the Mod Manager folder, give your account write access to its
+`Plugins` folder (Home shows the exact `icacls` command to copy into an administrator Command Prompt) or move the Mod Manager.
 
 ### Updating
 
@@ -101,13 +111,31 @@ Notes:
   it.
 - **Super Sim:** the score, clock and situation are saved during a sim too (a few seconds after the sim stops or you
   pause). The stats catch up at the next snap you play, so after a Super Sim, play one snap before you quit.
-- A game that reaches the final whistle is not saved: there is nothing to resume.
+- A game that reaches the final whistle is kept until you are back on your dynasty hub, then let go: its result is in
+  your dynasty. If the game closes before you get back to the hub (a crash on the highlights screen or on Return to
+  Hub, a freeze, or quitting to the desktop from the end screen), Games shows it as **Finished game that never reached
+  your dynasty**, with **Finish this game** and **Dismiss**. See [A finished game that never reached your
+  dynasty](#a-finished-game-that-never-reached-your-dynasty).
 - Dynasty Midgame Save can't read the team names from the game yet, so the cards say **Home** and **Away**. Click **Name** on a
   card to call it, say, *Maryland vs Ohio State*.
 - If the app was closed when you quit and you have not started another game since, Games shows **Found a recorded
   game** the next time you open it: **Keep** puts it in your library, **Discard** ignores it. Once another game starts,
   the game you quit goes to Games on its own (see [Does the app need to be open?](#does-the-app-need-to-be-open)).
 - **Save this game now** on Live saves the game at any moment, without quitting.
+
+### A finished game that never reached your dynasty
+
+The dynasty takes a game's result when you are back on the hub after the final whistle. If the game closes before
+that, the result may never reach your dynasty. Dynasty Midgame Save keeps such a game and shows it on **Games** marked
+**Finished game that never reached your dynasty**:
+
+- **Finish this game** opens the same Resume sheet as any saved game (Dry run is under Advanced, as always). The game
+  starts again at the **last play call before the end**, with the stats and injuries up to then. You replay the final
+  play or plays and the game ends normally, so the result reaches your dynasty. The replayed play can turn out
+  differently from the first time.
+- **Dismiss** puts it away (Show discarded keeps it for 30 days, with Undo).
+- These cards are not counted in **Keep the last games**: they stay until you finish or dismiss them.
+- A game that did reach the hub is never shown here. A game you quit before the final whistle is saved as before.
 
 ### Does the app need to be open?
 
@@ -154,6 +182,12 @@ any dry run). Then the game is put back where you left off at the first snap whe
 and play until then (a game saved in the second half waits until you sim or play into it). The sheet says so before you
 arm it.
 
+**Saved at a kickoff.** A kickoff has no down, so a game saved there can't start right at the saved moment. The Games
+card and the Resume sheet say "Saved at a kickoff": a kickoff save in the 3rd or 4th quarter waits for the 2nd half
+(sim or play into it), so the game starts at the coin toss and plays up to it; one in the 1st or 2nd quarter is put back
+at the first scrimmage snap of that half where the saved team has the ball. To resume right away, save again at a
+play-call screen (any 1st down after the kick).
+
 If something does not look right, **Settings > Advanced** has two switches for troubleshooting, both on:
 **Start right at the saved moment** (off: the game is put back at the first snap where the saved team has the ball,
 as above) and **Stats in the game right away** (off: your stats from before you quit are added to the season when the
@@ -195,7 +229,11 @@ The view only reads the saved file. Nothing in it changes your game or your seas
 
 ## Situations
 
-The **Situations** page starts the next game you play at any situation.
+The **Situations** page starts the next game you play at any situation, in a dynasty game or in Play Now. The game
+begins right at the situation, with no coin toss and no kickoff, and the right team on offense.
+
+A typed situation is used for one game; the game then records over it, so type it again (or open it from **Your
+situations**) for the next game.
 
 1. Pick a preset (**Two-minute drill**, **Goal line**, **Red zone**, **Fourth-quarter comeback**, **Overtime-like**,
    **Kneel-down practice**) or fill in the editor: quarter, clock, both scores, who has the ball, down, spot, yards to
@@ -210,6 +248,112 @@ The spot is from the offense's point of view: *own 35* is the offense's own 35-y
 the end zone. **Save as...** keeps a situation by name; open it again from **Your situations**.
 
 A typed situation never carries stats.
+
+To repeat a situation in the game you are playing instead (Play Now only), see [Drills](#drills).
+
+---
+
+## Drills
+
+> **Drill mode is a beta:** it has been tested in a few games; the possession flip, the timeouts fix and the hotkeys
+> are off by default.
+
+A drill puts a situation back into the game you are playing, again and again, so you can practise it: a two-minute
+drill, a 3rd and 8, a goal-line stand. **Drills work in Play Now games against the CPU only.**
+
+> **Never use drills in an online or rewards game: it can desync the consoles.** Dynasty Midgame Save cannot tell an
+> online or rewards game from an offline one, so it asks you to confirm every time you start a drill.
+
+1. On **Situations**, set up the situation as usual. A drill needs a quarter, who has the ball, a down and a spot.
+2. Under the preview, pick how it repeats in **Repeat**:
+   - **Once, in this game**: the next snap of the game you are playing is put at the situation. Press **Reset now** (on
+     **Live**) or the Apply hotkey for another one.
+   - **Every snap**: before every snap the game is put back at the situation.
+   - **Every N plays**: after N plays from the situation it is put back (4 plays = a short series).
+   - **Until a score or turnover**: play on until a score or a change of possession, then it is put back.
+   - **Start of next game** is the usual typed situation (see [Situations](#situations)).
+3. Press **Start the drill**, switch on **This is an offline Play Now game against the CPU**, and press **Start the
+   drill** again. With a Play Now game on, it starts at the next snap; otherwise at the first snap of your next Play Now
+   game.
+4. **Live** shows the drill: how it repeats, the reps so far, the last result, when it was last put back and what it is
+   waiting for. **Reset now** puts it back at the next snap; **Stop the drill** ends it (the game keeps going from where
+   it is).
+
+**Hotkeys.** On **Situations**, under **Repeat**, you can pick an **Apply now** key (put the situation back at the next
+snap) and a **Stop drill** key. They are off until you pick one, and work with the game or the app in front. F-keys are
+safest. If another program already uses the key, Live says so.
+
+**Good to know.**
+- A drill is set back at a snap where that team has the ball. After a score or a turnover the other team plays its
+  possession first (or sim through it), then the drill comes back.
+- The situation is put back before the play is called, so the play-call screen and the CPU see the drilled down, distance
+  and spot. If that does not hold, it is put back at the snap instead.
+- A drill stays in its quarter: when a rep runs out the quarter or the half, the drill stops. It also stops at the end of
+  the game, when you start a new game (press **Reset now** to drill again), and when you stop it.
+- A 3rd or 4th quarter drill started in the first half waits for the second half.
+- **A drill never runs in a dynasty game**, and the game a drill runs in is never saved, resumed or added to a dynasty:
+  your recording pauses for that whole game and starts again with the next one.
+- A drill and a resume never run together: cancel an armed resume first, and stop the drill before you arm one.
+- The box score, the line score and the time of possession keep every rep's plays.
+- **Dry run** in the start sheet goes through every check at each snap but changes nothing; the log on Live says what
+  would have changed.
+
+### Known issues
+
+- The first rep after the other team had the ball can show the old down, distance and spot on the play-call screen. The drill corrects it at the snap.
+- **Until a score or turnover:** a drill reset after your own touchdown or an interception has not been seen in a real game yet (a field goal, a punt and the other team's score were tested).
+- Drill games are never recorded, so there is nothing to resume. Drills work in Play Now games only, and in offline games only.
+
+---
+
+## No defense
+
+> **Beta.** Plays end at a touchdown, out of bounds, a quarterback slide (X while scrambling), or a throw-away (R3 / throw it out of bounds). A runner you do not steer runs to a touchdown by himself. A quarterback who holds the ball in the pocket is never stopped. A running back's dive has not been confirmed. Offline Play Now only. Never use it in an online or rewards game.
+
+At each of your offensive snaps, the other team's 11 players are moved off the field, the way the game's own **Offense
+Only** practice does it, and put back after the play. Everything else is a normal Play Now game: the stadium, the
+crowd, the scorebug, the commentary, the cameras and the replays. It is meant for testing stadium, audio and
+presentation tweaks in a real game, and for running plays without defenders.
+
+1. On **Situations**, under **Repeat**, tick **No defense (beta)**. It works with **Start of next game** (a whole game
+   with no defense) and with every drill option.
+2. Switch on **This is an offline Play Now game against the CPU** and press **Turn on No defense**.
+3. Play your Play Now game. **Live** shows a **No defense** card: whether the defense was moved off at the last snap,
+   how many plays so far, and why a snap was left alone. Its switch turns No defense on or off in the middle of a game;
+   it takes effect from the next snap.
+
+Turn Accelerated Clock off for No defense: with it on, the 15-second play clock can run out before you snap and the game gives delay-of-game flags.
+
+How a play ends with nobody to tackle:
+
+- Plays end at a touchdown, out of bounds, a quarterback slide (X while scrambling), or a throw-away (R3 / throw it out of bounds). A runner you do not steer runs to a touchdown by himself. A quarterback who holds the ball in the pocket is never stopped. A running back's dive has not been confirmed.
+
+What keeps the defense:
+
+- Kickoffs, extra points and 2-point tries, and every **4th down** (a punt or a field goal needs the other team; Dynasty
+  Midgame Save cannot read which play you called).
+- Every play of the CPU's possession: your defense plays as normal.
+- A snap where the game's own possession is still changing hands, a game with a second player on the other team, and
+  anything Dynasty Midgame Save cannot read: that snap is left alone.
+
+Safety:
+
+- **No defense never runs in a dynasty game**, and the game it runs in is never recorded, resumed or added to a dynasty
+  (the stats of a game with no defense are not real). Your recording pauses for that game, even after you switch No
+  defense off in it.
+- No defense and a resume never run together: cancel an armed resume first, and switch No defense off before you arm
+  one.
+- The players are put back at the next play call (or the next snap), when you switch it off, and at the start of the
+  next game.
+
+### Known issues
+
+- This is a beta: it has been played in one offline Play Now game so far (the defense moved off and put back on every
+  play, no crash).
+- Instant replays and audio with no defenders have not been checked yet.
+- Players on the other team's sideline (the bench) can be seen; moved players are not seen on the field.
+- A field goal or a punt on 1st to 3rd down is not detected: the other team is moved off for it too.
+- The box score keeps every no-defense play (that is why the game is never recorded).
 
 ---
 
@@ -249,21 +393,29 @@ switch the resume settings off in the other tool, then restart the game from the
   without the player who scored. The score, the box score and the season are right.
 - **Team names.** Dynasty Midgame Save can't read the team names from the game yet: cards and the stats say **Home** and
   **Away** (name a game with **Name** on its card).
+- **Fatigue.** Fatigue is saved with the box score, but a resumed game does not put it back: players start fresh.
 - **Super Sim.** The stats catch up at the next snap you play, so after a sim, play one snap before you quit.
 - **Positions in the stats.** Defensive linemen show as **DL** and linebackers as **LB**, because the exact spot (end or
   tackle, inside or outside) is not certain yet.
+- **Drills** are a beta: Play Now only. The box score, line score and time of possession keep every rep;
+  injuries and fatigue carry over from rep to rep; the timeouts on the scoreboard may lag a rep behind. Giving the ball
+  back to the drill side after a score or a turnover (instead of playing the other team's possession) is built but off
+  and not tested yet.
+- **No defense** is a beta: offline Play Now only, never recorded. Plays end at a touchdown, out of bounds, a quarterback
+  slide or a throw-away (a running back's dive has not been confirmed); 4th downs and kicks keep the defense.
 
 ---
 
 ## Troubleshooting
 
 **Live says "Waiting for a game" while the game runs.** Make sure you started the game from the Mod Manager. Dynasty Midgame
-Save loads about 30 seconds after the game starts. If you installed while the Mod Manager was open, close it and open
+Save loads about 20 seconds after the game starts. If you installed while the Mod Manager was open, close it and open
 it again.
 
 **A game I quit is not on Games.** Was Dynasty Midgame Save open when you quit? If not, open Games: the game shows as **Found a
 recorded game**, or, if you have played another game since, as a card marked **Saved while the app was closed**. A game
-that reached the final whistle is not saved, and neither is one quit before its first snap.
+quit before its first snap is not saved. A game that reached the final whistle is saved only if the game closed before
+you were back on the dynasty hub: it shows as **Finished game that never reached your dynasty**.
 
 **The resume did not happen.** Check that you started the same matchup with home and away the same way round. If the
 game did not begin at the saved moment (for example a game saved at a kickoff), play until the saved side has the ball,
@@ -274,6 +426,15 @@ the saved half. Resume it again and start a fresh game.
 
 **Carry stats is greyed out.** The game was saved without stats (Record stats was off), or this game version does not
 let Dynasty Midgame Save add stats yet. You can still resume the situation.
+
+**`plugin.log` says "more than one CollegeFB27.exe" or "waiting up to 120 s".** The launcher relaunched the game and
+two copies overlapped for a while. Dynasty Midgame Save waits up to `dup_wait_sec` seconds (default `120`, in
+`plugin.cfg`) for one to go, then loads into the one that is left. If two are still running after that it picks the one
+that is clearly the game (the only one with a visible titled window, else the child of the other, else the one with the
+graphics modules loaded or far more memory) and loads there. If it cannot tell, it does not load and the message says
+why; each candidate is listed in `plugin.log`, which is worth sending if you report it. `dup_wait_sec = 0` skips the
+wait and `dup_pick = 0` turns the picking off, which is how 0.1.2 behaved. An old message like this shows on Live as
+**Last launch** (muted, with its time) once the game is closed.
 
 **Something else.** On **About**, use **Save diagnostics...** and **Report a problem** (below).
 
@@ -295,7 +456,7 @@ let Dynasty Midgame Save add stats yet. You can still resume the situation.
 | Where | What |
 |---|---|
 | `<Mod Manager>\Plugins\MidgameSave\` | The DLL, `midgamesave.ini` (settings), `plugin.cfg`, the logs, and the files the game writes: `resume-last.ini` (the situation) and `resume-stats.ini` (the stats) |
-| `<Mod Manager>\Plugins\MidgameSave\pending\` | Games you quit while the app was closed, waiting for the app to add them to Games (it empties this folder) |
+| `<Mod Manager>\Plugins\MidgameSave\pending\` | Games you quit while the app was closed, and finished games that have not reached your dynasty hub yet, waiting for the app to add them to Games (it empties this folder) |
 | `%APPDATA%\MidgameSave\games\` | Your saved games, one folder each |
 | `%APPDATA%\MidgameSave\situations\` | Your saved situations |
 | `%APPDATA%\MidgameSave\backups\` | What Install and Uninstall backed up |
