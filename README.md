@@ -1,5 +1,7 @@
 # Dynasty Midgame Save
 
+**Download:** https://github.com/sdmart3/dynasty-midgame-save-releases/releases/latest
+
 **Quit a College Football 27 game whenever you like and pick it up later, right where you left off (PC).**
 
 Life gets in the way of a close game. Dynasty Midgame Save lets you quit a game at any point and pick it up later, even days
@@ -382,6 +384,17 @@ haven't changed them (they say **Default**), which may change in updates; once y
 If another tool in your Mod Manager already suspends and resumes games, Dynasty Midgame Save stays out of its way: it records
 nothing and arms nothing, and Home says **Dynasty Midgame Save is standing aside**. Nothing breaks. To use Dynasty Midgame Save instead,
 switch the resume settings off in the other tool, then restart the game from the Mod Manager.
+
+---
+
+## Dynasty Extensions' Spring Situations
+
+Dynasty Extensions 0.1.9 has Spring Situations (beta): the spring game is played as five set situations, starting with a
+two-minute drill before the half. With both installed, Dynasty Extensions hands the start of that one spring game to
+Dynasty Midgame Save (since 0.2.4), which starts it at the drill with no coin toss and no kickoff. Nothing to set up. The spring
+game is never recorded or offered as a saved game, and your own saved games and settings are not touched. If you have armed a
+saved game to resume (or a drill), Midgame Save says no and Spring Situations stay off for that game. With Midgame Save 0.2.3
+or older, Spring Situations switch themselves off for the spring game. Spring Situations is switched on in Dynasty Extensions 0.1.9 (League Settings > Spring Game > Game + Practice + Situations): https://github.com/sdmart3/dynasty-extensions-releases/releases/latest
 
 ---
 
