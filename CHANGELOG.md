@@ -1,19 +1,5 @@
 # Changelog
 
-## 0.2.4
-
-### New
-- **Works with Dynasty Extensions' Spring Situations.** Dynasty Extensions 0.1.9 adds Spring Situations (beta): the
-  spring game becomes five set situations in one game, starting with a two-minute drill before the half. When both are
-  installed, Dynasty Extensions hands the start of that one spring game to Dynasty Midgame Save, which sets it up the
-  same way it starts a saved game (no coin toss, no kickoff). Older Midgame Save versions make Spring Situations switch
-  themselves off, so the two tools never fight over the game.
-- The spring game is never recorded: it is not offered as a saved game, and your own saved game and settings are left
-  exactly as they were. If you have armed one of your saved games to resume (or a drill), Midgame Save says no to the
-  hand-off and Spring Situations stay off for that game. The Live page says when a spring game is running.
-
-Nothing else changes. Normal games, Play Now, Situations, Drill and No defense work exactly as in 0.2.3.
-
 ## 0.2.3
 
 ### Fixed
