@@ -385,6 +385,19 @@ switch the resume settings off in the other tool, then restart the game from the
 
 ---
 
+## Dynasty Extensions' Spring Practice
+
+Dynasty Extensions 0.2.0 has Spring Practice (beta): three practice weeks in the preseason, each with a drill game of five
+set situations that starts with a two-minute drill before the half. With both installed, Dynasty Extensions hands the start
+of each drill game to Dynasty Midgame Save (since 0.2.4), which starts it at the drill with no coin toss and no kickoff.
+Nothing to set up. The week-4 spring game is a normal game and is not handed over. The drill games are never recorded or
+offered as saved games, and your own saved games and settings are not touched. If you have armed a saved game to resume (or a
+drill), Midgame Save says no and that drill game plays as a normal game. With Midgame Save 0.2.3 or older, the drill games
+play as normal games. Dynasty Extensions does not need Midgame Save. Spring Practice is switched on in Dynasty Extensions 0.2.0
+(League Settings > Spring Game > Spring Practice): https://github.com/sdmart3/dynasty-extensions-releases/releases/latest
+
+---
+
 ## Known limits
 
 - **Field direction.** A resumed game can go toward the other end zone than it did before you quit. Only the look of it

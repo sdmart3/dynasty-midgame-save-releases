@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.4
+
+### New
+- **Works with Dynasty Extensions' Spring Practice.** Dynasty Extensions 0.2.0 adds Spring Practice (beta): three
+  practice weeks in the preseason, each with a drill game of five set situations that starts with a two-minute drill
+  before the half. When both are installed, Dynasty Extensions hands the start of each drill game to Dynasty Midgame
+  Save, which sets it up the same way it starts a saved game (no coin toss, no kickoff). The week-4 spring game is a
+  normal game and is not handed over. With older Midgame Save versions the drill games play as normal games, so the
+  two tools never fight over the game. Dynasty Extensions does not need Midgame Save: without it, Dynasty Extensions
+  starts the drill games itself.
+- The drill games are never recorded: they are not offered as saved games, and your own saved games and settings are
+  left exactly as they were. If you have armed one of your saved games to resume (or a drill), Midgame Save says no to
+  the hand-off and that drill game plays as a normal game. The Live page says when a drill game is running.
+
+Nothing else changes. Normal games, Play Now, Situations, Drill and No defense work exactly as in 0.2.3.
+
 ## 0.2.3
 
 ### Fixed
