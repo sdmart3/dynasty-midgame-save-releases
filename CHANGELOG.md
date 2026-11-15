@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.5
+
+### New
+- **A resumed game comes back the way you left it.** More of the game is saved at every snap and put back before the
+  first snap of the resume (with Carry stats on):
+  - Fatigue and wear and tear. Tired players come back tired, and the body-part health and season health pool pick up
+    where they were.
+  - Hot and cold. Each player's hot or cold meter and the team momentum meter are put back, so a hot team does not come
+    back cold. A player right at the edge of hot can come back one step either way, because the game works out the home
+    crowd's effect again.
+  - Injuries. A player who was hurt before you quit stays out of the lineup and the kick return.
+  Each one has its own switch in `midgamesave.ini` (`carry_fatigue`, `carry_wear`, `carry_composure`, `carry_momentum`,
+  `carry_injury_bench`; 1 = on, 0 = off) and `carry_dry = 1` only logs what would be put back. All are on.
+  A game saved with an older version has none of this saved, so it resumes as before.
+- **Other tools can follow the dynasty hub.** Midgame Save now publishes where it hooks the dynasty hub, so another tool
+  can be told when you are back on the hub without taking that hook away from Midgame Save. Nothing changes for you.
+
 ## 0.2.4
 
 ### New

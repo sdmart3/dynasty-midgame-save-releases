@@ -6,13 +6,14 @@ Life gets in the way of a close game. Dynasty Midgame Save lets you quit a game 
 later, right where you left off:
 
 - **Every game is recorded.** At every snap Dynasty Midgame Save saves the quarter, the clock, both scores, who has the ball,
-  the down and distance, the spot and the timeouts, plus the box score, injuries and fatigue.
+  the down and distance, the spot and the timeouts, plus the box score, injuries, fatigue, hot and cold.
 - **Quit whenever you like.** Quit from the pause menu or close the game. The game is saved on the **Games** page as a
   suspended game.
 - **Resume later.** Press **Resume** and start the same matchup again. The game begins right where you left off: same
   quarter, clock, score, down and spot, with the stats so far already in the game. No coin toss, no kickoff.
 - **Your stats count.** The box score shows the whole game, and the season counts all of it. A player who got hurt in
   that game before you quit stays hurt.
+- **The game feels the same.** Tired players come back tired and a hot team stays hot.
 - **See the saved stats.** Every saved game keeps its box score: passing, rushing, receiving, defense, kicking and
   punting, returns, snaps, team totals and injuries, one click away on its card.
 - **Set up any situation.** A two-minute drill, a goal-line stand, a fourth-quarter comeback: type it in, and the next
@@ -160,9 +161,11 @@ whenever you like.
    begins right where you left off: same quarter, clock, score, down and spot, with the stats so far already in the
    game.* Choose:
    - **Carry stats**: puts your stats from before you quit back into the game, so the box score shows the whole game
-     and the season counts all of it.
-   - **Carry injuries**: a player hurt in this game before you quit stays hurt. A player who was already injured before
-     kickoff is listed apart ("Already injured before kickoff") and left as he is.
+     and the season counts all of it. It also puts back what the game feels like: fatigue, wear and tear, hot and cold,
+     the team momentum meter (see [What comes back](#what-comes-back-with-a-resumed-game)).
+   - **Carry injuries**: a player hurt in this game before you quit stays hurt, and stays out of the lineup and the kick
+     return. A player who was already injured before kickoff is listed apart ("Already injured before kickoff") and left
+     as he is.
    - **Advanced > Dry run**: goes through every check at the first snap but changes nothing in the game. The log on
      Live says what would have changed. Use it if you want to see what will happen first. While it is on, the button
      reads **Arm the dry run** and the sheet shows **Dry run: nothing will be written**.
@@ -176,6 +179,22 @@ whenever you like.
    before you quit.
 6. Play the game out. The card on Games says **Resumed** and what happened, and the season counts the whole
    game.
+
+### What comes back with a resumed game
+
+With **Carry stats** on, these are put back before the first snap of the resume:
+
+| What | How it comes back |
+|---|---|
+| **Fatigue** | Tired players come back tired. Rested players stay rested. |
+| **Wear and tear** | The body-part health and the season health pool pick up where they were, so the first part's wear reaches the season at the final whistle. |
+| **Hot and cold** | Each player's hot or cold meter and the team momentum meter, so a hot team does not come back cold. The home crowd's effect is worked out again by the game, so a player right at the edge of hot can come back one step either way. |
+| **Injuries** | A player who was hurt before you quit stays out of the lineup and the kick return. |
+
+Each has its own switch in `midgamesave.ini` (1 = on, 0 = off): `carry_fatigue`, `carry_wear`, `carry_composure`,
+`carry_momentum`, `carry_injury_bench`. They are all on. `carry_dry = 1` only
+write to the log what would be put back. A game saved with an older version has none of this saved, so it resumes as
+before.
 
 A few saved games can't start right at the saved moment: one saved at a kickoff or an extra point, or in overtime (and
 any dry run). Then the game is put back where you left off at the first snap where the saved team has the ball: kick off
@@ -363,7 +382,7 @@ Safety:
 | Setting | What it does |
 |---|---|
 | **Record games** | Saves the situation at every snap. On by default. |
-| **Record stats** | Saves the box score, injuries and fatigue at every snap too (needed for Carry stats). On by default. |
+| **Record stats** | Saves the box score, injuries, fatigue, hot and cold at every snap too (needed for Carry stats). On by default. |
 | **Detailed log** | Writes every step to `midgamesave.log`. Leave it off unless something goes wrong. |
 | **Carry stats by default** / **Carry injuries by default** | How the Resume sheet starts. |
 | **Keep the last games** | How many saved games Dynasty Midgame Save keeps (20 by default). An armed game, and one resumed in the last 7 days, are always kept. |
@@ -406,14 +425,14 @@ play as normal games. Dynasty Extensions does not need Midgame Save. Spring Prac
   without the player who scored. The score, the box score and the season are right.
 - **Team names.** Dynasty Midgame Save can't read the team names from the game yet: cards and the stats say **Home** and
   **Away** (name a game with **Name** on its card).
-- **Fatigue.** Fatigue is saved with the box score, but a resumed game does not put it back: players start fresh.
+- **Depth chart.** A resumed game starts from your dynasty depth chart, so a starter you benched or swapped during the
+  game is back in the lineup.
 - **Super Sim.** The stats catch up at the next snap you play, so after a sim, play one snap before you quit.
 - **Positions in the stats.** Defensive linemen show as **DL** and linebackers as **LB**, because the exact spot (end or
   tackle, inside or outside) is not certain yet.
 - **Drills** are a beta: Play Now only. The box score, line score and time of possession keep every rep;
   injuries and fatigue carry over from rep to rep; the timeouts on the scoreboard may lag a rep behind. Giving the ball
-  back to the drill side after a score or a turnover (instead of playing the other team's possession) is built but off
-  and not tested yet.
+  back to the drill side after a score or a turnover (instead of playing the other team's possession) is off by default.
 - **No defense** is a beta: offline Play Now only, never recorded. Plays end at a touchdown, out of bounds, a quarterback
   slide or a throw-away (a running back's dive has not been confirmed); 4th downs and kicks keep the defense.
 
