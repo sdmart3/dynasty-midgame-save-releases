@@ -86,6 +86,8 @@ The game itself runs as you, so it can't write there either. Dynasty Midgame Sav
 `%LOCALAPPDATA%\Dynasty Midgame Save\<a short code>\` instead; Home shows that folder with an **Open that folder** button, and
 the app reads from it. If you'd rather keep everything in the Mod Manager folder, give your account write access to its
 `Plugins` folder (Home shows the exact `icacls` command to copy into an administrator Command Prompt) or move the Mod Manager.
+If `%LOCALAPPDATA%` can't be written either (for example antivirus blocks it), it uses
+`%TEMP%\Dynasty Midgame Save\<a short code>\` as a last resort, and the app reads from there too.
 
 ### Updating
 
@@ -443,6 +445,17 @@ play as normal games. Dynasty Extensions does not need Midgame Save. Spring Prac
 **Live says "Waiting for a game" while the game runs.** Make sure you started the game from the Mod Manager. Dynasty Midgame
 Save loads about 20 seconds after the game starts. If you installed while the Mod Manager was open, close it and open
 it again.
+
+**Home says "Loaded, not reporting".** Dynasty Midgame Save is in the game, but the game can't write its files, so the app
+can't hear from it. This usually happens when the Mod Manager sometimes runs as administrator and sometimes doesn't, or when
+antivirus blocks the game from writing. Try one of these:
+- Run the Mod Manager as administrator, then launch the game from it as usual.
+- Click **Allow Dynasty Midgame Save to write here** on Home, if it shows.
+- Check Windows Security > Virus & threat protection > Protection history (or your antivirus) for blocked writes by
+  `CollegeFB27.exe`, and allow it.
+
+`plugin.log` and `midgamesave.log` in `Plugins\MidgameSave` say what happened. Since 0.2.6 the log also names the Windows
+error when the folder can't be written.
 
 **A game I quit is not on Games.** Was Dynasty Midgame Save open when you quit? If not, open Games: the game shows as **Found a
 recorded game**, or, if you have played another game since, as a card marked **Saved while the app was closed**. A game

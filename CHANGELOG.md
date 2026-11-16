@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.6
+
+### Fixed
+- **Home no longer says "Not running" when Dynasty Midgame Save is actually in the game.** If the game couldn't write
+  its files into the Mod Manager's `Plugins\MidgameSave` folder (for example the Mod Manager ran without administrator
+  rights that time, or antivirus blocked it), Dynasty Midgame Save loaded but stayed silent, and the app showed "Not
+  running". Now:
+  - Home shows **Loaded, not reporting** with the reason, and Troubleshooting in the README says what to do.
+  - The log names the Windows error when the folder can't be written.
+  - If `%LOCALAPPDATA%` can't be written either, it writes to `%TEMP%\Dynasty Midgame Save\` instead of nowhere, and the
+    app reads from there.
+- Tip: running the Mod Manager as administrator, or allowing `CollegeFB27.exe` in your antivirus, fixes the cause.
+
+Nothing else changed from 0.2.5.
+
 ## 0.2.5
 
 ### New
