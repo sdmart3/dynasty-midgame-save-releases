@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.7
+
+### Updated
+- **Works on the 11-17 game update.** Dynasty Midgame Save checks the game's code before it changes anything, and the
+  11-17 update moved that code. This version knows the new layout, so every part (resume, Play Now situations, the
+  stats and carry pieces, the drill and No defense) installs on the 11-17 game update. It still works on the 10-29 one,
+  and on the older builds it already supported.
+- Nothing else changed from 0.2.6.
+
 ## 0.2.6
 
 ### Fixed
